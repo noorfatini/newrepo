@@ -1,122 +1,3 @@
-# NFS_JAVA_C2_2026 | Full-Stack Development with Java, React & MongoDB
-
-
-
-## Programme Description
-
-
-
-This 20-day programme is designed to help participants build a complete full-stack web application using Java, Spring Boot, React, and MongoDB.
-
-
-
-The programme takes learners from programming and web fundamentals to backend API development, frontend interface design, database modelling, authentication, testing, performance improvement, and final capstone presentation.
-
-
-
-Throughout the programme, participants will work on practical exercises and gradually build a small but production-like web application. The final outcome is a working capstone project that demonstrates the use of a React frontend, Spring Boot backend, MongoDB database, secure authentication, API documentation, testing practices, and deployment-readiness basics.
-
-
-
-AI tools such as Gemini are used as learning accelerators to help scaffold examples, suggest refactoring ideas, draft tests, generate sample data, and support MongoDB query or aggregation design. However, participants are expected to review, verify, understand, and take ownership of all generated code.
-
-
-
----
-
-
-
-## Programme Duration
-
-
-
-* Duration: 20 training days
-
-* Daily Duration: 7 hours per day
-
-* Total Training Hours: 140 hours
-
-* Mode: Instructor-led training with guided labs, team build activities, review sessions, quizzes, and capstone development
-
-
-
----
-
-
-
-## Programme Objectives
-
-
-
-By the end of this programme, participants will be able to:
-
-
-
-* Understand web fundamentals, HTTP, REST, and JSON.
-
-* Write basic to intermediate Java and JavaScript code.
-
-* Build REST APIs using Spring Boot.
-
-* Apply validation, authentication, authorisation, and error-handling practices.
-
-* Model data effectively using MongoDB.
-
-* Use MongoDB indexes, queries, pagination, and aggregation pipelines.
-
-* Build accessible React user interfaces with routing, forms, state, and data fetching.
-
-* Apply testing practices for backend and frontend development.
-
-* Use AI coding assistants responsibly for learning, refactoring, testing, and documentation.
-
-* Design, build, document, and present a full-stack capstone project.
-
-
-
----
-
-
-
-
-
----
-
-
-
-## AI-Assisted Learning Guidelines
-
-
-
-Participants may use AI tools to:
-
-
-
-* Generate README drafts and documentation sections.
-
-* Create API call examples and JSON payload samples.
-
-* Suggest method signatures and edge cases.
-
-* Propose refactoring options.
-
-* Draft test scenarios for backend and frontend features.
-
-* Suggest MongoDB document structures, queries, indexes, and aggregation pipelines.
-
-* Improve demo scripts and presentation notes.
-
-
-
-Participants must always review, verify, test, and understand any AI-generated output. No passwords, API keys, tokens, private keys, or confidential data should be placed into AI prompts.
-
-
-
-
-
-
-
-
 ## Day 1 Exercise 01 - Code Explanation
 
 ### 1. What is the purpose of Course.java?
@@ -158,3 +39,15 @@ AI explained that Java classes work the same way as classes in JavaScript. We ha
 ### 2. One part I still needed the trainer or my own reading to understand
 
 AI briefly mentioned the this keyword but did not explain it well enough. I needed the trainer to explain that we write this.courseId = courseId because the parameter name and the field name are the same. Java uses this to refer to the field, not the parameter. In C++ it is similar but we use this with an arrow instead of a dot.
+
+
+
+## Day 1 Exercise 02 - Code Explanation
+
+I added two new fields to the Course class which are category and active. The category field stores what type of course it is and the active field stores whether the course is currently running or not. I also updated the constructor to accept these two new values when creating a course object. Lastly I updated the printSummary method to print the category and to show the word Active or Inactive instead of printing true or false directly.
+
+## Day 1 Exercise 03 - Code Explanation
+
+Course only stores the general information about a course like the title, level, and duration. But in a real application, the same course can run multiple times with different instructors, dates, and class sizes. CourseOffering handles that by linking a Course to a specific scheduled run. So instead of duplicating the course data every time, we just create a new offering that points to the same course. This makes the data cleaner and easier to manage.
+
+Note: I used AI to help check my answers and code for Exercise 02 and Exercise 03 and make sure it runs successfully.

@@ -14,6 +14,9 @@ public class Main {
         Student student1 = new Student("S001", "Alice", "alice@example.com");
         Student student2 = new Student("S002", "Bob", "bob@example.com");
 
+        CourseOffering offering1 = new CourseOffering("OFF001", "Intro to CS - June 2026 Intake", course1, instructor1, "2026-06-19", "2026-06-20", 25, "Physical");
+        CourseOffering offering2 = new CourseOffering("OFF002", "Advanced Java - June 2026 Intake", course2, instructor2, "2026-06-19", "2026-06-20", 30, "Hybrid");
+
         course1.setInstructor(instructor1);
         course2.setInstructor(instructor2);
 
@@ -32,5 +35,9 @@ public class Main {
         student2.printProfile();
         System.out.println();
 
+        System.out.println("Course Offerings:");
+        offering1.printOfferingSummary();
+        offering2.printOfferingSummary();
+        System.out.println();
     }
 }

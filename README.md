@@ -51,3 +51,13 @@ I added two new fields to the Course class which are category and active. The ca
 Course only stores the general information about a course like the title, level, and duration. But in a real application, the same course can run multiple times with different instructors, dates, and class sizes. CourseOffering handles that by linking a Course to a specific scheduled run. So instead of duplicating the course data every time, we just create a new offering that points to the same course. This makes the data cleaner and easier to manage.
 
 Note: I used AI to help check my answers and code for Exercise 02 and Exercise 03 and make sure it runs successfully.
+
+
+
+## Day 4 Exercise 01 - JavaScript Student Object
+
+I created a student object using curly braces without writing a class. The object has four properties which are studentId, studentName, email, and status. I printed the whole object first and then printed each property one by one. I used dot notation for studentId, studentName, and status. I used bracket notation for email.
+
+### What is one difference between a Java object and a JavaScript object?
+
+In Java, you must define a class first and then use the new keyword to create an object from that class. In JavaScript, you can create an object directly using curly braces without writing a class at all. This means JavaScript lets you represent simple data much faster with less code.

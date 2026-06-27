@@ -107,3 +107,11 @@ pop returns the item that was removed from the end of the array.
 ### 5. What is the difference between shift and unshift?
 
 shift removes the first item from the array and returns it. unshift adds a new item to the beginning of the array and returns the new length.
+
+
+
+## Day 4 Exercise 05 - DOM Rendering
+
+### What does the DOM allow JavaScript to do?
+
+The DOM lets JavaScript access and change what's on the page. So instead of the HTML being static, JS can create new elements, update content, and add them to the page without reloading. In this exercise, I used it to loop through a list of students and render each one as a card on the screen.

@@ -71,3 +71,13 @@ I created an array called instructors that holds four instructor objects. Each o
 ### How is a JavaScript array similar to Java ArrayList?
 
 Both JavaScript arrays and Java ArrayList can grow in size, meaning you do not need to set a fixed length when you create them. You can keep adding objects into them. In Java you would write List<Instructor> instructors = new ArrayList<>() and then use add() to put objects in. In JavaScript you just use square brackets and put the objects directly inside. The for...of loop in JavaScript also works the same way as the enhanced for loop in Java, where you go through each item one by one without needing an index number.
+
+
+
+## Day 4 Exercise 03 - Functions and Arrow Functions
+
+I wrote three types of functions for a student object. The first is a normal function called formatStudent that returns a formatted string with the student ID, name, and status. The second is an arrow function called getStudentEmail that returns the student email. The third is a short arrow function called getStudentStatus that returns the status in one line without using the return keyword.
+
+### Why are arrow functions important before learning React?
+
+Arrow functions are important before learning React because React uses them almost everywhere. When you write a React component, you often pass functions as props or write callback functions inside JSX. Arrow functions are shorter and cleaner to write in those situations. They also handle the this keyword differently from normal functions, which avoids common bugs when working with events and state in React. Learning arrow functions now means the React syntax will feel familiar instead of confusing when you get there.

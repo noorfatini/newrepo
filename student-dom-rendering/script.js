@@ -32,7 +32,7 @@ students.forEach((student) => {
 
   studentCard.innerHTML = `
     <h2>Student ID: ${student.studentId}</h2>
-    <p>Name:${student.studentName}</p>
+    <p>Name: ${student.studentName}</p>
     <p>Email: ${student.email}</p>
     <p>Status: ${student.status}</p>
   `;

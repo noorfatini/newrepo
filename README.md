@@ -115,3 +115,11 @@ shift removes the first item from the array and returns it. unshift adds a new i
 ### What does the DOM allow JavaScript to do?
 
 The DOM lets JavaScript access and change what's on the page. So instead of the HTML being static, JS can create new elements, update content, and add them to the page without reloading. In this exercise, I used it to loop through a list of students and render each one as a card on the screen.
+
+
+
+## Day 4 Exercise 06 - Search Filter UI
+
+### How is JavaScript filter used in a search feature?
+
+When the user types a keyword and clicks Search, filter goes through the students array and keeps only the students whose name includes that keyword. It returns a new array which we pass to renderStudents to update the page. The original array stays unchanged, so Reset just renders all students again.

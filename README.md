@@ -123,3 +123,27 @@ The DOM lets JavaScript access and change what's on the page. So instead of the 
 ### How is JavaScript filter used in a search feature?
 
 When the user types a keyword and clicks Search, filter goes through the students array and keeps only the students whose name includes that keyword. It returns a new array which we pass to renderStudents to update the page. The original array stays unchanged, so Reset just renders all students again.
+
+
+
+## Day 4 Exercise 07 - Fetch Local JSON
+
+### 1. What does async mean?
+
+async means the function is allowed to wait. It tells JavaScript that the function contains code that might take time to finish, so the rest of the program does not freeze while waiting.
+
+### 2. What does await do?
+
+await pauses the function at that line and waits for the task to finish before moving to the next line. Without it, JavaScript would continue running before the data is ready.
+
+### 3. What does fetch do?
+
+fetch requests data from a file or an API. In this exercise it loads from students.json. Later it will load from a Spring Boot backend at http://localhost:8080/api/students.
+
+### 4. Why do we use fetch before connecting to a real backend API?
+
+Because the idea is the same. Whether we fetch from a local JSON file or a real API, the code looks almost identical. Practising with a local file first means the syntax will feel familiar when we connect to Spring Boot later.
+
+### 5. Why should this exercise be run using Live Server?
+
+The browser blocks fetch requests when the HTML file is opened directly as a file. Live Server runs the page over HTTP so the fetch can work properly.

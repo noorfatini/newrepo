@@ -1,0 +1,26 @@
+[
+    {
+        "id": "C001",
+        "title": "JavaScript Fundamentals",
+        "durationHours": 12,
+        "level": "Beginner"
+    },
+    {
+        "id": "C002",
+        "title": "Advanced JavaScript",
+        "durationHours": 20,
+        "level": "Advanced"
+    },
+    {
+        "id": "C003",
+        "title": "Web Development with JavaScript",
+        "durationHours": 24,
+        "level": "Beginner"
+    },
+    {
+        "id": "C004",
+        "title": "JavaScript Libraries and Frameworks",
+        "durationHours": 16,
+        "level": "Intermediate"
+    }
+]

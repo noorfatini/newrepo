@@ -61,3 +61,13 @@ I created a student object using curly braces without writing a class. The objec
 ### What is one difference between a Java object and a JavaScript object?
 
 In Java, you must define a class first and then use the new keyword to create an object from that class. In JavaScript, you can create an object directly using curly braces without writing a class at all. This means JavaScript lets you represent simple data much faster with less code.
+
+
+
+## Day 4 Exercise 02 - Instructor Array and Loop
+
+I created an array called instructors that holds four instructor objects. Each object has three properties which are instructorId, instructorName, and expertise. I used a for...of loop to go through each instructor and print their details in one line. I also printed the total number of instructors using the length property.
+
+### How is a JavaScript array similar to Java ArrayList?
+
+Both JavaScript arrays and Java ArrayList can grow in size, meaning you do not need to set a fixed length when you create them. You can keep adding objects into them. In Java you would write List<Instructor> instructors = new ArrayList<>() and then use add() to put objects in. In JavaScript you just use square brackets and put the objects directly inside. The for...of loop in JavaScript also works the same way as the enhanced for loop in Java, where you go through each item one by one without needing an index number.

@@ -81,3 +81,29 @@ I wrote three types of functions for a student object. The first is a normal fun
 ### Why are arrow functions important before learning React?
 
 Arrow functions are important before learning React because React uses them almost everywhere. When you write a React component, you often pass functions as props or write callback functions inside JSX. Arrow functions are shorter and cleaner to write in those situations. They also handle the this keyword differently from normal functions, which avoids common bugs when working with events and state in React. Learning arrow functions now means the React syntax will feel familiar instead of confusing when you get there.
+
+
+
+## Day 4 Exercise 04 - Array Methods
+
+I practised all 8 array methods using a students array. Part A used forEach, filter, find, and map which do not change the original array. Part B used push, pop, unshift, and shift which modify the original array directly. I printed the array after each Part B operation to see how the data changed step by step.
+
+### 1. What is the difference between filter, find, and map?
+
+filter keeps all items that match a condition and returns a new array. find returns only the first item that matches and stops looking after that. map does not filter anything, it goes through every item and transforms it into something else, then returns a new array.
+
+### 2. Which four array methods change the original array?
+
+push, pop, unshift, and shift all modify the original array directly.
+
+### 3. What does push return?
+
+push returns the new length of the array after the item is added.
+
+### 4. What does pop return?
+
+pop returns the item that was removed from the end of the array.
+
+### 5. What is the difference between shift and unshift?
+
+shift removes the first item from the array and returns it. unshift adds a new item to the beginning of the array and returns the new length.

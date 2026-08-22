@@ -6,9 +6,9 @@ public class Instructor {
     private String expertise;
 
     public Instructor(String instructorId, String instructorName, String expertise) {
-        this.instructorId = instructorId;
-        this.instructorName = instructorName;
-        this.expertise = expertise;
+        setInstructorId(instructorId);
+        setInstructorName(instructorName);
+        setExpertise(expertise);
     }
 
     public String getInstructorId() {

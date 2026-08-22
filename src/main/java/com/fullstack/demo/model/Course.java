@@ -10,10 +10,10 @@ public class Course {
     private boolean active;
 
     public Course(String courseId, String title, int durationHours, String level, String category, boolean active) {
-        this.courseId = courseId;
-        this.title = title;
-        this.durationHours = durationHours;
-        this.level = level;
+        setCourseId(courseId);
+        setTitle(title);
+        setDurationHours(durationHours);
+        setLevel(level);
         this.category = category;
         this.active = active;
     }

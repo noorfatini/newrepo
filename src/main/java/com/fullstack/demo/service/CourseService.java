@@ -1,5 +1,6 @@
 package src.main.java.com.fullstack.demo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import src.main.java.com.fullstack.demo.exception.CourseNotFoundException;
@@ -53,10 +54,25 @@ public class CourseService {
         // }
         String safeKeyword = keyword == null ? "" : keyword.toLowerCase();
 
-        return courseRepository.findAll()
-                .stream()
-                .filter(course -> course.getTitle().toLowerCase().contains(safeKeyword))
-                .toList();
+        return courseRepository.findAll() // get all courses
+                .stream() // start a stream to process the list
+                .filter(course -> course.getTitle().toLowerCase().contains(safeKeyword)) // keeps only matching result
+                .toList(); // collect the filtered results into a new list and return it
+    }
+
+    public List<Course> searchByTitleUsingLoop(String keyword) {
+        String safeKeyword = keyword == null ? "" : keyword.trim().toLowerCase();
+        List<Course> results = new java.util.ArrayList<>();
+
+        for (Course course : courseRepository.findAll()) {
+            String title = course.getTitle().toLowerCase();
+
+            if (title.contains(safeKeyword)) {
+                results.add(course);
+            }
+        }
+
+        return results;
     }
 
     public List<Course> filterByLevel(String level) {
@@ -65,6 +81,29 @@ public class CourseService {
         return courseRepository.findAll()
                 .stream()
                 .filter(course -> course.getLevel().toLowerCase().equals(safeLevel))
+                .toList();
+    }
+
+    public List<Course> searchByLevelUsingLoop(String level) {
+        String safeLevel = level == null ? "" : level.trim();
+
+        List<Course> results = new ArrayList<>();
+
+        for (Course course : courseRepository.findAll()) {
+            if (course.getLevel().equalsIgnoreCase(safeLevel)) {
+                results.add(course);
+            }
+        }
+
+        return results;
+    }
+
+    public List<Course> searchByLevelUsingStream(String level) {
+        String safeLevel = level == null ? "" : level.trim();
+
+        return courseRepository.findAll()
+                .stream()
+                .filter(course -> course.getLevel().equalsIgnoreCase(safeLevel))
                 .toList();
     }
 

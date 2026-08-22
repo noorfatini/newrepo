@@ -63,3 +63,25 @@ Answer:
 If we put start date, end date, and capacity directly inside Course, that means one course can only have one schedule at a time. But in real life, the same course like Java Fundamentals can run many times, for example once in June and once in July, with different dates, different capacity, and maybe even a different instructor.
 
 By keeping those details in a separate CourseOffering class instead, Course just stays as the general info (title, level, duration), and CourseOffering becomes the specific "run" of that course. So we can create OFF001 and OFF003 that both point to the same Java Fundamentals course but have completely different dates and capacity, without duplicating or overwriting the course data. This is the composition part, CourseOffering has a Course and has an Instructor, instead of copying their info as plain text fields.
+
+## Day 3 Exercise 05 - Write Search Using Loop, Then Compare with Stream
+
+I added searchByLevelUsingLoop() to CourseService.java. It treats null as an empty string, trims the level, uses equalsIgnoreCase() to compare, and loops through courseRepository.findAll() to collect matching courses into a new ArrayList. I also did the optional Task D and added searchByLevelUsingStream(), which does the same thing but using stream() and filter() instead of a for loop.
+
+Then I created SearchPractice.java, added four courses (C001, C002, C003, C004), and called both methods with "Beginner" as the level. Both versions return the same result, C001 and C003, which are the two Beginner courses.
+
+### README reflection
+
+Question: Which version is easier to understand: loop or stream? Why?
+
+Answer:
+
+For me the loop version is easier to understand at first, because I can see every step clearly, create the empty list, go through each course one by one, check the condition, then add it if it matches. It reads almost like normal instructions.
+
+The stream version is shorter and looks cleaner once I already understand what filter() is doing, but if I did not write the loop version first, I think the stream version would be confusing because it hides the loop and the ArrayList inside it.
+
+Question: What does filter() do in a stream?
+
+Answer:
+
+filter() goes through each item in the stream and only keeps the ones that match the condition inside it, basically it does the same job as the if statement inside my loop version, just written in a shorter way.

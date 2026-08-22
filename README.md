@@ -49,3 +49,17 @@ Answer:
 If CourseService just prints "Course not found" directly, that message is stuck as a console print, it cannot be reused anywhere else. But if the service throws CourseNotFoundException instead, the service is just saying "something went wrong here", and it lets whoever is calling it decide how to show that error.
 
 This matters because the same CourseService might be used by different types of callers. A console app can catch it and print a message like I did in ExceptionPractice. A web API can catch the same exception and turn it into a proper error response, like a 404 status with a JSON message. A frontend app can catch it and show a popup or a red text under the search box. If the service already printed the message itself, none of these other callers would be able to control how the error looks, they would just get a random println in the terminal that is not even useful for them.
+
+## Day 3 Exercise 04 - Object Relationships and Composition
+
+I created ObjectRelationshipPractice.java. I made two instructors (Mike Rahman and Marcus Lee) and two courses (Java Fundamentals and React Frontend Development), then assigned each instructor to a course and printed the course summaries. After that I created two CourseOffering objects that link a Course and an Instructor together with dates, capacity, and delivery mode, and printed both. For the extension task, I added a third offering (OFF003) that reuses the same Java Fundamentals course but with a different date, just to show one course can have more than one offering.
+
+### README reflection
+
+Question: Why is CourseOffering a better design than putting start date, end date, and capacity directly inside Course?
+
+Answer:
+
+If we put start date, end date, and capacity directly inside Course, that means one course can only have one schedule at a time. But in real life, the same course like Java Fundamentals can run many times, for example once in June and once in July, with different dates, different capacity, and maybe even a different instructor.
+
+By keeping those details in a separate CourseOffering class instead, Course just stays as the general info (title, level, duration), and CourseOffering becomes the specific "run" of that course. So we can create OFF001 and OFF003 that both point to the same Java Fundamentals course but have completely different dates and capacity, without duplicating or overwriting the course data. This is the composition part, CourseOffering has a Course and has an Instructor, instead of copying their info as plain text fields.

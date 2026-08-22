@@ -3,6 +3,7 @@ package com.example.AssetTracker.controller;
 import com.example.AssetTracker.dto.TicketResponse;
 import com.example.AssetTracker.service.TicketService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,5 +29,11 @@ public class TicketController {
     @GetMapping
     public List<TicketResponse> getAllTickets() {
         return ticketService.getAllTickets();
+    }
+
+    // GET /api/tickets/{id} -> returns a single ticket by id
+    @GetMapping("/{id}")
+    public TicketResponse getTicketById(@PathVariable String id) {
+        return ticketService.getTicketById(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.AssetTracker.service;
 
 import com.example.AssetTracker.dto.TicketResponse;
+import com.example.AssetTracker.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -57,5 +58,14 @@ public class TicketService {
     // Return all tickets.
     public List<TicketResponse> getAllTickets() {
         return tickets;
+    }
+
+    // Find a ticket by id or throw a ResourceNotFoundException which is
+    // handled globally by GlobalExceptionHandler.
+    public TicketResponse getTicketById(String id) {
+        return tickets.stream()
+                .filter(ticket -> ticket.getId().equalsIgnoreCase(id))
+                .findFirst()
+                .orElseThrow(() -> new ResourceNotFoundException("Ticket " + id + " was not found"));
     }
 }

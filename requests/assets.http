@@ -6,6 +6,10 @@ GET http://localhost:8080/api/health
 GET http://localhost:8080/api/about
 
 
+### Get all tickets
+GET http://localhost:8080/api/tickets
+
+
 ### Get all assets
 GET http://localhost:8080/api/assets
 

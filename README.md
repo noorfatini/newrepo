@@ -1,53 +1,23 @@
-## Day 1 Exercise 01 - Code Explanation
+## Day 3 Exercise 01 - Build and Trace the Code Flow
 
-### 1. What is the purpose of Course.java?
+I created a new class called CodeFlowPractice.java. Inside it, I first created the repository, then the service, then I added a new course called C004 (Spring Boot API Development) using the service, and finally I got the course back using the service and printed it.
 
-Course.java is a class that represents a course. It holds information like the course ID, title, duration, level, and instructor. It is the same idea as a class in JavaScript where we define what a course object looks like.
+### Why create the repository first?
 
-### 2. What is the purpose of Instructor.java?
+The repository is the one that actually holds the data. The service does not store data by itself, so the repository has to exist before we can give it to the service.
 
-Instructor.java is a class that represents an instructor. It stores the instructor ID, name, and area of expertise. It also has a method called printProfile that prints those details to the console.
+### Why does CourseService need CourseRepository?
 
-### 3. What is the purpose of Student.java?
+CourseService does not talk to the LinkedHashMap directly. When we call something like createCourse or getCourseById, the service just passes the request to the repository, and the repository is the one that does the actual saving or finding. That is why the service needs a repository to work with.
 
-Student.java is a class to represent a student.
+### README reflection
 
-### 4. What does the constructor do?
+Question: When getCourseById("C004") is called, which file does the request go to first, second, and third?
 
-The constructor runs when we create a new object. It takes in the values we pass and saves them into the object's fields. It is the same as a constructor in JavaScript classes or in C++.
+Answer:
 
-### 5. Why are the fields marked as private?
+1. First it goes to CourseService.java. This is the file we call getCourseById on.
+2. Second it goes to CourseRepository.java. This is just the interface, so it does not really "do" anything by itself, it just says findById must exist.
+3. Third it goes to InMemoryCourseRepository.java. This is the actual class that implements the interface, and it is the one that looks up "C004" inside the LinkedHashMap and returns the course.
 
-Private means other classes cannot read or change the fields directly. You have to use getter and setter methods instead. This keeps the data safe and controlled, which is the same concept as private in C++.
-
-### 6. What does course1.assignInstructor(instructor1) mean?
-
-This connects an Instructor object to a Course object. After calling this, the course knows which instructor is teaching it.
-
-### 7. What does student1.printProfile() do?
-
-It calls a method on the student object that prints the student's details to the console.
-
-## AI-Assisted Task
-
-Prompt I used: Explain this Java class to someone who already knows JavaScript and C++.
-
-### 1. One explanation from AI that helped me
-
-AI explained that Java classes work the same way as classes in JavaScript. We have a constructor, fields, and methods. The main difference is Java is stricter because you have to declare the data type for every field. That comparison was easy to understand since I already know how JS classes work.
-
-### 2. One part I still needed the trainer or my own reading to understand
-
-AI briefly mentioned the this keyword but did not explain it well enough. I needed the trainer to explain that we write this.courseId = courseId because the parameter name and the field name are the same. Java uses this to refer to the field, not the parameter. In C++ it is similar but we use this with an arrow instead of a dot.
-
-
-
-## Day 1 Exercise 02 - Code Explanation
-
-I added two new fields to the Course class which are category and active. The category field stores what type of course it is and the active field stores whether the course is currently running or not. I also updated the constructor to accept these two new values when creating a course object. Lastly I updated the printSummary method to print the category and to show the word Active or Inactive instead of printing true or false directly.
-
-## Day 1 Exercise 03 - Code Explanation
-
-Course only stores the general information about a course like the title, level, and duration. But in a real application, the same course can run multiple times with different instructors, dates, and class sizes. CourseOffering handles that by linking a Course to a specific scheduled run. So instead of duplicating the course data every time, we just create a new offering that points to the same course. This makes the data cleaner and easier to manage.
-
-Note: I used AI to help check my answers and code for Exercise 02 and Exercise 03 and make sure it runs successfully.
+So the flow is CodeFlowPractice -> CourseService -> CourseRepository -> InMemoryCourseRepository -> LinkedHashMap, and then the course comes back the same way in reverse.

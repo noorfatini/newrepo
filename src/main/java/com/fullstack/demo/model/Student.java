@@ -1,4 +1,4 @@
-package src.main.java.com.fullstack.demo;
+package src.main.java.com.fullstack.demo.model;
 
 public class Student {
     private String studentId;
@@ -15,12 +15,24 @@ public class Student {
         return studentId;
     }
 
+    public void setStudentId(String studentId) {
+        this.studentId = requireText(studentId, "Student ID");
+    }
+
     public String getStudentName() {
         return studentName;
     }
 
+    public void setStudentName(String studentName) {
+        this.studentName = requireText(studentName, "Student Name");
+    }
+ 
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = requireText(email, "Email");
     }
 
     public void printProfile() {
@@ -29,5 +41,10 @@ public class Student {
         System.out.println("Email: " + email);
     }
     
-    
+    private static String requireText(String value, String fieldName) {
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException(fieldName + " is required.");
+        }
+        return value.trim();
+    }
 }

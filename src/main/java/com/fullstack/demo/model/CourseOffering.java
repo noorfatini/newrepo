@@ -1,4 +1,4 @@
-package src.main.java.com.fullstack.demo;
+package src.main.java.com.fullstack.demo.model;
 
 public class CourseOffering {
     private String offeringId;
@@ -53,7 +53,18 @@ public class CourseOffering {
         return deliveryMode;
     }
 
-    public void printOfferingSummary() {
+    public String getSummary() {
+        return "Offering ID: " + offeringId 
+        + ", Name: " + offeringName 
+        + ", Course: " + course.getTitle() 
+        + ", Instructor: " + instructor.getInstructorName() 
+        + ", Start Date: " + startDate 
+        + ", End Date: " + endDate 
+        + ", Capacity: " + capacity 
+        + ", Delivery Mode: " + deliveryMode;
+    }
+
+    public void printSummary() {
         System.out.println("Offering ID: " + getOfferingId());
         System.out.println("Offering Name: " + getOfferingName());
         System.out.println("Course: " + getCourse().getTitle());

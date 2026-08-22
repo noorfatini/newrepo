@@ -1,4 +1,4 @@
-package src.main.java.com.fullstack.demo;
+package src.main.java.com.fullstack.demo.model;
 
 public class Instructor {
     private String instructorId;
@@ -15,17 +15,36 @@ public class Instructor {
         return instructorId;
     }
 
+    public void setInstructorId(String instructorId) {
+        this.instructorId = requireText(instructorId, "Instructor ID");
+    }
+
     public String getInstructorName() {
         return instructorName;
+    }
+
+    public void setInstructorName(String instructorName) {
+        this.instructorName = requireText(instructorName, "Instructor Name");
     }
 
     public String getExpertise() {
         return expertise;
     }
 
-    public void printProfile() {
+    public void setExpertise(String expertise) {
+        this.expertise = requireText(expertise, "Expertise");
+    }
+
+    public void getProfile() {
         System.out.println("Instructor ID: " + instructorId);
         System.out.println("Name: " + instructorName);
         System.out.println("Expertise: " + expertise);
+    }
+
+    private static String requireText(String value, String fieldName) {
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException(fieldName + " is required.");
+        }
+        return value.trim();
     }
 }

@@ -21,3 +21,17 @@ Answer:
 3. Third it goes to InMemoryCourseRepository.java. This is the actual class that implements the interface, and it is the one that looks up "C004" inside the LinkedHashMap and returns the course.
 
 So the flow is CodeFlowPractice -> CourseService -> CourseRepository -> InMemoryCourseRepository -> LinkedHashMap, and then the course comes back the same way in reverse.
+
+## Day 3 Exercise 02 - Interface and Repository Storage Practice
+
+I created RepositoryPractice.java. This time I did not use CourseService at all, I called the repository directly. I saved three courses (C005, C006, C007) using courseRepository.save(), printed all of them with a loop, found C006 using Optional, and checked if C007 exists using existsById().
+
+### README reflection
+
+Question: Why is InMemoryCourseRepository temporary storage? What would probably replace it later when we use MongoDB?
+
+Answer:
+
+InMemoryCourseRepository is temporary because it only keeps the data inside a LinkedHashMap, which lives in the program's memory while it is running. Once we stop the program, everything inside that map is gone, nothing is actually saved anywhere permanent.
+
+Later when we use MongoDB, there will probably be a new class like MongoCourseRepository that also implements the CourseRepository interface, but instead of using a LinkedHashMap, it will actually connect to a MongoDB database and save the data there so it does not disappear when the program stops. Since CourseService only depends on the CourseRepository interface and not on InMemoryCourseRepository directly, we can swap it to MongoCourseRepository later without changing the service code.

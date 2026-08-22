@@ -1,8 +1,11 @@
 package com.example.AssetTracker.service;
 
+import com.example.AssetTracker.dto.CreateTicketRequest;
 import com.example.AssetTracker.dto.TicketResponse;
 import com.example.AssetTracker.exception.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,5 +70,28 @@ public class TicketService {
                 .filter(ticket -> ticket.getId().equalsIgnoreCase(id))
                 .findFirst()
                 .orElseThrow(() -> new ResourceNotFoundException("Ticket " + id + " was not found"));
+    }
+
+    // Create a new ticket from the request DTO. New tickets always start
+    // with status OPEN and today's date.
+    public TicketResponse createTicket(CreateTicketRequest request) {
+        TicketResponse created = new TicketResponse(
+                createNextId(),
+                request.getTitle().trim(),
+                request.getDescription().trim(),
+                request.getCategory().trim(),
+                request.getPriority().trim(),
+                "OPEN",
+                request.getCreatedBy().trim(),
+                LocalDate.now().toString()
+        );
+
+        tickets.add(created);
+        return created;
+    }
+
+    // Helper to create a simple sequential id. Not thread-safe but fine for demo.
+    private String createNextId() {
+        return "T" + String.format("%03d", tickets.size() + 1);
     }
 }

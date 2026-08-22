@@ -1,4 +1,4 @@
-package src.main.java.com.fullstack.demo;
+package src.main.java.com.fullstack.demo.model;
 
 public class Course {
     private String courseId;
@@ -10,10 +10,10 @@ public class Course {
     private boolean active;
 
     public Course(String courseId, String title, int durationHours, String level, String category, boolean active) {
-        this.courseId = courseId;
-        this.title = title;
-        this.durationHours = durationHours;
-        this.level = level;
+        setCourseId(courseId);
+        setTitle(title);
+        setDurationHours(durationHours);
+        setLevel(level);
         this.category = category;
         this.active = active;
     }
@@ -22,16 +22,35 @@ public class Course {
         return courseId;
     }
 
+    public void setCourseId(String courseId) {
+        this.courseId = requireText(courseId, "Course ID");
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = requireText(title, "Course Title");
     }
 
     public int getDurationHours() {
         return durationHours;
     }
 
+    public void setDurationHours(int durationHours) {
+        if (durationHours <= 0) {
+            throw new IllegalArgumentException("Duration must be more than 0.");
+        }
+        this.durationHours = durationHours;
+    }
+
     public String getLevel() {
         return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = requireText(level, "Course Level");
     }
 
     public Instructor getInstructor() {
@@ -40,6 +59,16 @@ public class Course {
 
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
+    }
+
+    public String getSummary() {
+        String instructorName = instructor == null ? "Not assigned yet" : instructor.getInstructorName();
+        return "Course ID: " + courseId 
+        + ", Title: " + title 
+        + ", Duration: " + durationHours 
+        + " hours, " 
+        + ", Level: " + level
+        + ", Instructor: " + instructorName;
     }
 
     public void printSummary() {
@@ -61,6 +90,13 @@ public class Course {
         } else {
             System.out.println("Status: Inactive");
         }
+    }
+
+    private static String requireText(String value, String fieldName) {
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException(fieldName + " is required.");
+        }
+        return value.trim();
     }
 }
 

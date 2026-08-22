@@ -85,3 +85,25 @@ Question: What does filter() do in a stream?
 Answer:
 
 filter() goes through each item in the stream and only keeps the ones that match the condition inside it, basically it does the same job as the if statement inside my loop version, just written in a shorter way.
+
+## Day 3 Exercise 06 - Build StudentService Using the Same Pattern as CourseService
+
+For this one I rebuilt the same repository and service pattern, but for Student instead of Course. I created StudentRepository (interface only, no storage code), InMemoryStudentRepository (uses a LinkedHashMap, same as the course one), StudentNotFoundException, and StudentService with registerStudent, getStudentById, getAllStudents, and searchByNameUsingLoop.
+
+I also did the extension task, I added DuplicateStudentException and made registerStudent throw that instead of IllegalArgumentException when the student ID already exists, and I added searchByNameUsingStream as the stream version of the search method.
+
+Then I created Day3_Assignment06_StudentServicePractice.java to test everything. I registered 3 students (S001, S002, S003), printed all of them, found one by ID, searched by name using both the loop and the stream version, and tried to find a missing student (S999) which correctly throws StudentNotFoundException and gets caught without crashing the program.
+
+### README reflection
+
+Question: How is StudentService similar to CourseService?
+
+Answer:
+
+StudentService follows the exact same structure as CourseService. Both of them only hold a reference to their repository interface (StudentRepository / CourseRepository) through the constructor, they do not store any data themselves. Both have a method to register/create, a method to get one by ID that throws a not-found exception if it does not exist, a method to get all, and a search method that has both a loop version and a stream version. Basically once you understand one of them, you already understand the pattern for the other one, just the field names are different.
+
+Question: Which file stores students temporarily while the program is running?
+
+Answer:
+
+InMemoryStudentRepository.java is the one that stores students temporarily, because it holds the actual LinkedHashMap in memory. Once the program stops running, that data is gone, same idea as InMemoryCourseRepository for courses.
